@@ -1,0 +1,65 @@
+<mvc:View controllerName="ZUX_PERS_CRUD.controller.View1" xmlns:html="http://www.w3.org/1999/xhtml" xmlns:mvc="sap.ui.core.mvc"
+	xmlns:semantic="sap.m.semantic" xmlns="sap.m" height="100%">
+	<App id="idAppControl">
+		<Page title="CRUD TEST">
+			<content>
+				<VBox direction="Column" id="vbox0" justifyContent="Center" width="100%">
+					<items>
+						<Label id="label3" text="Personnel List" textAlign="Center" width="100%"/>
+					</items>
+				</VBox>
+				<Table id="table0" items="{/PersonnelSet}" noDataText="Drop column list items here and columns in the area above">
+					<items>
+						<ColumnListItem counter="0" id="item1">
+							<cells>
+								<Text id="text5" maxLines="0" text="{Persid}"/>
+								<Text id="text6" maxLines="0" text="{Name}"/>
+								<Text id="text7" maxLines="0" text="{Department}"/>
+								<Text id="text8" maxLines="0" text="{Title}"/>
+								<HBox>
+									<Button text="Edit" icon="sap-icon://create-form" type="Accept" press="onChange"></Button>
+									<Button text="Delete" icon="sap-icon://sys-cancel-2" type="Reject" press="onDelete"></Button>
+								</HBox>
+							</cells>
+						</ColumnListItem>
+					</items>
+					<columns>
+						<Column id="column0">
+							<header>
+								<Label id="label0" text="Persid"/>
+							</header>
+						</Column>
+						<Column id="column1">
+							<header>
+								<Label id="label1" text="Name"/>
+							</header>
+						</Column>
+						<Column id="column2">
+							<header>
+								<Label id="label2" text="Department"/>
+							</header>
+						</Column>
+						<Column id="column33">
+							<header>
+								<Label id="title" text="Title"/>
+							</header>
+						</Column>
+						<Column id="column34">
+							<header>
+								<Label id="buttons" text="Buttons"/>
+							</header>
+						</Column>
+					</columns>
+				</Table>
+			</content>
+			<footer>
+				<OverflowToolbar id="otbFooter">
+					<ToolbarSpacer/>
+					<Button text="New Personnel" icon="sap-icon://add" press="onNewPers">
+						<layoutData><OverflowToolbarLayoutData priority="NeverOverflow"/></layoutData>
+					</Button>
+				</OverflowToolbar>
+			</footer>
+		</Page>
+	</App>
+</mvc:View>

@@ -1,0 +1,152 @@
+{
+	"_version": "1.1.0",
+	"sap.app": {
+		"_version": "1.1.0",
+		"id": "ZUX_PERS_CRUD",
+		"type": "application",
+		"i18n": "i18n/i18n.properties",
+		"applicationVersion": {
+			"version": "1.0.0"
+		},
+		"title": "{{appTitle}}",
+		"description": "{{appDescription}}",
+		"resources": "resources.json",
+		"ach": "ach",
+		"sourceTemplate": {
+			"id": "servicecatalog.connectivityComponentForManifest",
+			"version": "0.0.0"
+		},
+		"dataSources": {
+			"mainService": {
+				"type": "OData",
+				"settings": {
+					"odataVersion": "2.0",
+					"localUri": "localService/metadata.xml"
+				},
+				"uri": "localService/metadata.xml"
+			},
+			"ZHR_CRUD_TEST_SRV": {
+				"uri": "/sap/opu/odata/sap/ZHR_CRUD_TEST_SRV/",
+				"type": "OData",
+				"settings": {
+					"localUri": "localService/ZHR_CRUD_TEST_SRV/metadata.xml"
+				}
+			}
+		}
+	},
+	"sap.ui": {
+		"_version": "1.1.0",
+		"technology": "UI5",
+		"icons": {
+			"icon": "",
+			"favIcon": "",
+			"phone": "",
+			"phone@2": "",
+			"tablet": "",
+			"tablet@2": ""
+		},
+		"deviceTypes": {
+			"desktop": true,
+			"tablet": true,
+			"phone": true
+		},
+		"supportedThemes": [
+			"sap_hcb",
+			"sap_bluecrystal"
+		]
+	},
+	"sap.ui5": {
+		"_version": "1.1.0",
+		"rootView": {
+			"viewName": "ZUX_PERS_CRUD.view.View1",
+			"type": "XML"
+		},
+		"dependencies": {
+			"minUI5Version": "1.30.0",
+			"libs": {
+				"sap.ui.core": {},
+				"sap.m": {},
+				"sap.ui.layout": {}
+			}
+		},
+		"contentDensities": {
+			"compact": true,
+			"cozy": true
+		},
+		"models": {
+			"i18n": {
+				"type": "sap.ui.model.resource.ResourceModel",
+				"settings": {
+					"bundleName": "ZUX_PERS_CRUD.i18n.i18n"
+				}
+			},
+			"": {
+				"type": "sap.ui.model.odata.v2.ODataModel",
+				"settings": {
+					"defaultOperationMode": "Server",
+					"defaultBindingMode": "OneWay",
+					"defaultCountMode": "Request"
+				},
+				"dataSource": "ZHR_CRUD_TEST_SRV",
+				"preload": true
+			}
+		},
+		"resources": {
+			"css": [{
+				"uri": "css/style.css"
+			}]
+		},
+		"routing": {
+			"config": {
+				"routerClass": "sap.m.routing.Router",
+				"viewType": "XML",
+				"async": true,
+				"viewPath": "ZUX_PERS_CRUD.view",
+				"controlAggregation": "pages",
+				"controlId": "idAppControl"
+			},
+			"routes": [{
+				"pattern": "",
+				"name": "View1",
+				"target": [
+					"View1"
+				]
+			}, {
+				"pattern": "Edit/{Persid}",
+				"name": "Edit",
+				"target": [
+					"edit"
+				]
+			}, {
+				"pattern": "New",
+				"name": "New",
+				"target": [
+					"new"
+
+				]
+			}],
+			"targets": {
+				"View1": {
+					"viewName": "View1",
+					"viewID": "view1",
+					"viewLevel": 1,
+					"title": "View1"
+				},
+
+				"edit": {
+					"viewName": "Edit",
+					"viewID": "Edit",
+					"viewLevel": 2,
+					"title": "Edit"
+				},
+				"new": {
+					"viewName": "New",
+					"viewID": "New",
+					"viewLevel": 2,
+					"title": "New"
+				}
+			}
+		}
+
+	}
+}
